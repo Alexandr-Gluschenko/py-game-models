@@ -10,15 +10,15 @@ def main() -> None:
     for player_data in players_data:
         guild, created = Guild.objects.get_or_create(name=player_data["guild"])
 
-        race, created = Race.objects.get_or_create(name=players_data["race"])
+        race, created = Race.objects.get_or_create(name=player_data["race"])
 
     skills = []
-    for skill_data in players_data["skills"]:
+    for skill_data in player_data["skills"]:
         skill, created = Skill.objects.get_or_create(name=skill_data["name"])
         skills.append(skill)
 
     player, created = Player.objects.get_or_create(
-        name=players_data["name"],
+        nickname=player_data["nickname"],
         guild=guild,
         race=race
     )
