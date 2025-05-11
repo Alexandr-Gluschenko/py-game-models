@@ -25,4 +25,4 @@ class Player(models.Model):
     guild = models.ForeignKey(Guild, on_delete=models.CASCADE, )
     created_at = models.DateTimeField(auto_now_add=True)
 
-    models = models.ManyToManyField(Skill)
+    skills = models.ManyToManyField(Skill)
